@@ -7,9 +7,9 @@ def clear_console():
      os.system('clear')
 
 clear_console()
-print("Hello gamer, here a simple Quiz game thought to entretainement you.\n\nEnjoy it!!!\n")
+print("Hello gamer, here a simple Quiz game thought to entertainment you.\n\nEnjoy it!!!\n")
 
-question = {
+questions = {
      "Who is the first American's President?" : "B",
      "When was the second world war?" : "A",
      "In which country was intented the pizza?" : "C"    
@@ -35,5 +35,4 @@ question_3 = {
 }
 
 number_correct_answer = 0
-
-New_Game.new_game(question, number_correct_answer, question_1,question_2, question_3)
+New_Game.new_game(questions, number_correct_answer, question_1, question_2, question_3)
