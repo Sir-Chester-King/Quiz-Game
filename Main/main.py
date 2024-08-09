@@ -1,6 +1,7 @@
 # This is the main scope about this project
 import os
-import New_Game, Check_Answer, Play_Again, Display_Score
+import New_Game
+import Play_Again
 
 
 # This function just clear the console interpreter to a fancy view.
