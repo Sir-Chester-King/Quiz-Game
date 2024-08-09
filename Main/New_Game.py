@@ -1,4 +1,6 @@
 # This is the scope for the new game.
+import Check_Answer
+import Display_Score
 import os
 
 
@@ -7,15 +9,29 @@ def clear_console():
     os.system('clear')
 
 
-def new_game(questions, number_correct_answer, *correct_answer):
-     number_questions = len(questions)
-     print(questions.items())
-     for key in questions.keys():
-          print("Question number {}: \n")
+def new_game(questions, possible_answer):
+    # Initialize a counter for question numbers
+    count_questions = 1
 
-     for index in correct_answer:
-          print("List of correct anwer is: ", index, end="\n")
-          #print("Correct answer number {}: ".format(index))
-     for key,value in questions.items():
-          print(key)
-          print(value)
+    answer_given = []
+
+    # Iterate over the questions and print them
+    for key in questions.keys():
+        print(F"Question number {count_questions}: {key}")
+        print("Options:")
+
+        # So, question number 1 ---> answer number [question - 1]
+        for index in possible_answer[count_questions - 1]:
+            print(index)
+
+        count_questions += 1  # Index for loop iterate
+        answer_input = input("Enter A, B, C or D: ").upper()
+
+        answer_given.append(answer_input)  # Append the input to check after the answer given with the correct answer
+        Check_Answer.check_answer(questions.get(key), answer_input)
+
+    questions_value = questions.values()
+
+    see_score = input("You wanna see the score?\nYes or No?").lower()
+    if see_score == "yes":
+        Display_Score.display_score(questions_value, answer_given)
